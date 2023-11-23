@@ -1,4 +1,4 @@
-# Fake_News_Predictor
+# Fake News Detector
 * Achieved **99.86%** Accuracy in Fake News Detection using Natural Language Processing (NLP) by Fine Tuning the **DeBERTa LLM Transformer** on a Dataset of 72,133 News Articles using Python, Pandas, PyTorch, Hugging Face.
 
 ## How to use it in your projects -
