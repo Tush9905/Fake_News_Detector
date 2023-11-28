@@ -1,5 +1,8 @@
 # Fake News Detector
 * Achieved **99.86%** Accuracy in Fake News Detection using Natural Language Processing (NLP) by Fine Tuning the **DeBERTa LLM Transformer** on a Dataset of 72,133 News Articles using Python, Pandas, PyTorch, Hugging Face.
+* Used **Hugging Face Hub** with **Hugging Face Inference API** for **MLOps / Deploying** the Model.
+* Developed an Interactive Web App using Streamlit.
+* Tech Used - **Python, Pandas, PyTorch, Hugging Face, Streamlit.**
 
 ## How to use it in your projects (2 Ways) -
 ### Using API Calls with Hugging Face Inference API (Recommended for using it directly in your App)
