@@ -9,6 +9,9 @@ __pycache__/
 # The Actual Model Folder
 /fake_news_detector
 
+# Token
+huggingface_token.py
+
 # The Dataset since it's too large
 *.csv
 
