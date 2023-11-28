@@ -4,7 +4,7 @@ import requests
 from huggingface_token import token
 
 st.write("# Fake News Detector")
-API_URL = "https://api-inference.huggingface.co/models/tush9905/email_fraud_detector"
+API_URL = "https://api-inference.huggingface.co/models/tush9905/fake_news_detector"
 headers = {"Authorization": f"Bearer {token}"}
 
 def query(payload):
@@ -14,6 +14,7 @@ def query(payload):
 with st.form("my_form"):
     news_article = st.text_input(label="Copy and Paste the News Article Here.")
     submitted = st.form_submit_button("Submit")
+    
     if submitted:
         Result = query({"inputs": news_article})
         Label = Result[0][0]["label"]
