@@ -1,5 +1,4 @@
 import streamlit as st
-from transformers import pipeline
 import requests
 from huggingface_token import token
 
