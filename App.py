@@ -1,8 +1,9 @@
 import streamlit as st
-import requests
 from huggingface_token import token
+import requests
 
-st.write("# Fake News Detector")
+st.title("Fake News Detector")
+
 API_URL = "https://api-inference.huggingface.co/models/tush9905/fake_news_detector"
 headers = {"Authorization": f"Bearer {token}"}
 
@@ -11,23 +12,20 @@ def query(payload):
 	return response.json()
 
 with st.form("my_form"):
-    news_article = st.text_input(label="Copy and Paste the News Article Here.")
-    submitted = st.form_submit_button("Submit")
-    
-    if submitted:
-        Result = query({"inputs": news_article})
-        Label = Result[0][0]["label"]
-        Score = Result[0][0]["score"]
-        Label_not = Result[0][1]["label"]
-        Score_not = Result[0][1]["score"]
-        if Label == "RELIABLE":
-            st.success(f"Looks {int(Score*100)}% {Label}")
-        else:
-            st.error(f"Looks {int(Score*100)}% {Label}")
+   email = st.text_input("Copy and Paste the News Article")
+   submit = st.form_submit_button('Check')
 
-        st.write(f"{Label} : {Score*100}%")
-        st.write(f"{Label_not} : {Score_not*100}%")
-        
+   if submit:
+      model_output = query({"inputs": email})
+      label = model_output[0][0]["label"]
+      score = model_output[0][0]["score"]
+      label_not = model_output[0][1]["label"]
+      score_not = model_output[0][1]["score"]
+      if label == "UNRELIABLE":
+        st.error(f"The News looks {int(score*100)}% {label}")
+        st.write()
+      else:
+         st.success(f"The News looks {int(score*100)}% {label}")
 
-
-
+      st.write(f"{label} : {score*100}%")
+      st.write(f"{label_not} : {score_not*100}")
